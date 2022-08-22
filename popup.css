@@ -1,0 +1,110 @@
+.popup-bg-versa{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(14, 14, 14, 0.3);
+  display: none;
+	z-index: 9999;
+  
+}
+.popup-versa {
+  position: fixed;
+  top: 35%;
+  left: 45%;
+  width: 200px;
+  background:#ffff;
+  text-align: center;
+  transform: translate(-25%, 0);
+	z-index: 9999;
+}
+.popup-close-versa {
+  position: absolute;
+  top: -1rem;
+  right: -1.5rem;
+  width: 2rem;
+  height: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color:transparent;
+  border: none;
+  cursor: pointer;
+	z-index: 9999;
+}
+.open-popup-versa {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color:rgb(6, 125, 131);
+  font-weight: 600;
+  cursor: pointer;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+	z-index: 5;
+}
+
+
+.grid-versa * {
+padding: 5px 10px;
+background-color: rgb(251, 252, 252);
+border: 0.3px solid rgb(0, 0, 0, 0.5);
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+grid-template-columns: repeat(auto-fit), minmax(50px, 1fr);
+z-index: 9999;
+
+}
+.grid-versa{
+display: grid;
+grid-template-columns: 100px 100px;
+grid-template-rows: auto;
+grid-auto-rows: minmax(50, auto);
+justify-items: stretch;
+align-items: stretch;
+z-index: 9999;
+/*grid-template-columns: repeat(auto-fill, minmax(50px, 50px));*/
+}
+
+
+
+/* Конвертор Versa Travel */
+.grid-versa > div:nth-child(1) {
+  grid-column-start: 1;
+  grid-column-end: 3; 
+	z-index: 9999;
+}
+
+/* Введите сумму */
+.grid-versa > div:nth-child(6) {
+  grid-column: 1;
+  grid-column-end: 3;
+	z-index: 9999;
+}
+
+/* Конвертация */
+.grid-versa > div:nth-child(9) {
+  grid-column: 1 / 3;
+  grid-row: 6;
+	z-index: 9999;
+}
+
+.item-name-versa {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(4, 125, 131);
+  text-decoration:underline;
+  z-index: 999;
+}
+
+.name-sumvs {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: rgb(4, 125, 131);
+	z-index: 999;
+  
+}
+/*  #form-control-vs { 
+  font-size: 11px;
+	z-index: 999;
+} */
