@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-gb" dir="ltr" vocab="http://schema.org/">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <script type="text/javascript">
+
+          import axios from 'axios';
+      import xmlDate from 'xml2js';
+
+      const parser = new xmlDate.Parser();
+      axios
+        .get(
+          `http://www.cbr.ru/scripts/XML_daily.asp`
+        )
+        .then((response) => {
+          parser.parseStringPromise(response.data).then((result) => {
+            const yourVar = result.ITEMS[0].ITEM[0]; // работаете как с обычным js объектом, (здесь какие-то рандомные свойстав написал)
+          })
+
+        .catch((err) => {
+          console.log(err);
+        });
+      }
+    </script>
+
+    <div class="curs-vs-k">
+      <p class="uk-margin-remove">
+        <span class="tl-fw500 tl-txt-color1 t-fs13"
+          >Курс VerSa Travel -
+          <span id="daterate" class="uk-text-muted tl-fw500 t-fs13"
+            >00.00.0000</span
+          ></span
+        >
+        <br />
+       <span class="name-rates-vs">USD</span>
+          <span id="USD2" class="usd tl-fw400 t-txt-color4 uk-margin-small-right">
+           00.00</span>
+        <span class="name-rates-vs-eur">EUR</span>
+          <span id="EUR2" class="euro tl-fw400 t-txt-color4"> 00.00</span>
+        </p>
+
+      <p id="t-cur-rf" class="uk-margin-remove">
+        <span class="tl-fw500 tl-txt-color1 t-fs13">Курс валют ЦБ РФ -
+          <span id="daterate2" class="uk-text-muted tl-fw500 t-fs13"
+            >00.00.0000</span
+          ></span>
+        <br />
+        <span id="USD" class="usd tl-fw400 t-txt-color4 uk-margin-small-right"
+          ><span class="name-rates-vs">USD</span></> 00.00</span>
+         <span class="name-rates-vs-eur">EUR</span>
+        <span id="EUR" class="euro tl-fw400 t-txt-color4"> 00.00</span>
+      </p>
+    </div>
+    <script type="script">
+      
+
+      function CBR_XML_Daily_Ru(rates) 
+      {
+        var now = new Date().toLocaleDateString();
+
+        var USDrate = rates.Valute.USD.Value.toFixed(2);
+        var USDpr = (USDrate / 100) * 14 + Number(USDrate);
+        var USDrate2 = USDpr.toFixed(2);
+        var USD = document.getElementById("USD");
+        var USD2 = document.getElementById("USD2");
+        USD.innerHTML = USD.innerHTML.replace("00.00", USDrate);
+        USD2.innerHTML = USD2.innerHTML.replace("00.00", USDrate2);
+
+        var EURrate = rates.Valute.EUR.Value.toFixed(2);
+        var EURpr = (EURrate / 100) * 14 + Number(EURrate);
+        var EURrate2 = EURpr.toFixed(2);
+        var EUR = document.getElementById("EUR");
+        var EUR2 = document.getElementById("EUR2");
+        EUR.innerHTML = EUR.innerHTML.replace("00.00", EURrate);
+        EUR2.innerHTML = EUR2.innerHTML.replace("00.00", EURrate2);
+
+        var today = document.getElementById("daterate");
+        today.innerHTML = today.innerHTML.replace("00.00.0000", now);
+        var today2 = document.getElementById("daterate2");
+        today2.innerHTML = today2.innerHTML.replace("00.00.0000", now);
+      };
+    </script>
+    <link rel="dns-prefetch" href="https://www.cbr-xml-daily.ru/" />
+    <script src="//www.cbr-xml-daily.ru/daily_jsonp.js" async></script>
+    
+  </body>
+
+</html>
