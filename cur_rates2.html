@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="popup.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <title>Курс валют VS Travel</title>
+  </head>
+  <body>
+    <!--<classList top></classList>
+    <classList bottom></classList>-->
+    <a href="#" class="open-popup-versa">Курс валют</a>
+
+    <div class="popup-bg-versa">
+      <div class="popup-versa">
+        <button class="popup-close-versa">&times;</button>
+        <div class="grid-versa">
+          <div class="item-name-versa">Курс VersaTravel</div>
+          <div class="course-item-title">USD</div>
+          <div class="course-item-title">EUR</div>
+
+          <div class="course-item-value" data-value="USD">--.--</div>
+          <div class="course-item-value" data-value="EUR">--.--</div>
+
+          <div class="name-sumvs">Введите сумму</div>
+
+          <select
+            disable
+            id="selectvs"
+            
+            class="form-control-vs"
+          
+          >
+            <option value="USD" class="curs">USD</option>
+            <option value="EUR" class="curs">EUR</option>
+            <input
+              id="inputvs"
+              type="number"
+            />
+            <div class="name-sumvs">Конвертация</div>
+            <!--<div class="select-form">
+              <div class="ru_flag"></div>-->
+
+            <select class="form-controvs" id="exampleFormControlSelect1">
+              <option value="RUB" class="rub" selected>RUB</option>
+            </select>
+          
+
+          <input
+            id="resultvs"
+            class="input1"
+            type="number"
+          />
+        </div>
+      </div>
+    </div>
+    <script src="jqery.min.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
+
